@@ -14,5 +14,8 @@
         "quotes": [ "error", "single" ],
         "semi": [ "error", "always" ],
         "no-console": 0
+    },
+    "globals": {
+        "__configs": true
     }
 }
