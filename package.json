@@ -1,0 +1,31 @@
+{
+  "name": "eflow-server",
+  "version": "0.1.0",
+  "description": "EFlow Server",
+  "main": "www",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "debug": "set DEBUG=eflow:* & npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castro150/eflow-server.git"
+  },
+  "author": "Rafael Carneiro de Castro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/castro150/eflow-server/issues"
+  },
+  "homepage": "https://github.com/castro150/eflow-server#readme",
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.16.3",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "nodemon": "^1.18.4"
+  }
+}
