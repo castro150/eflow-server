@@ -7,8 +7,9 @@
     "node": "8.12.0"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "debug": "set DEBUG=eflow:* & npm start",
+    "nodemon": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
