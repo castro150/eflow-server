@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "EFlow Server",
   "main": "www",
+  "engines": {
+    "node": "8.12.0"
+  },
   "scripts": {
     "start": "nodemon ./bin/www",
     "debug": "set DEBUG=eflow:* & npm start",
