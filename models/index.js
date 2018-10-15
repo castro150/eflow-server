@@ -1,1 +1,1 @@
-require('./Contact');
+require('./Reading');
