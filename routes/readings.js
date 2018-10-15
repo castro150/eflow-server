@@ -16,10 +16,14 @@ router.get('/', function (req, res) {
 });
 
 // POST create new reading.
-router.post('/', function (req, res) {
-	// TODO
-	console.log('BODY ', req.body);
-	res.send('POST OK');
+router.post('/', function (req, res, next) {
+	if (!req.body.sensor) return res.status(400).send('Missing parameter: sensor.');
+
+	let reading = new Reading(req.body);
+	reading.save(function (err) {
+		if (err) return next(err);
+		return res.status(201).send('New reading created with success.');
+	});
 });
 
 // TODO remover
