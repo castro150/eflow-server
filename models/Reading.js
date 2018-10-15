@@ -1,15 +1,10 @@
 const mongoose = require('mongoose');
 
 let ReadingSchema = new mongoose.Schema({
-	id: String,
-	otherIds: [{
-		email: String,
-		id: String
-	}],
-	domainId: String,
-	email: String,
-	name: String,
-	phoneNumber: String
+	sensor: { type: mongoose.Schema.Types.ObjectId, ref: 'Sensor' },
+	date: { type: Date, default: Date.now },
+	flow: Number,
+	consumption: Number
 }, { collection: 'readings' });
 
 mongoose.model('Reading', ReadingSchema);

@@ -1,1 +1,2 @@
+require('./Sensor');
 require('./Reading');
