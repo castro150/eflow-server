@@ -2,16 +2,16 @@ let express = require('express');
 let router = express.Router();
 
 const mongoose = require('mongoose');
-const User = mongoose.model('Contact');
+const Reading = mongoose.model('Reading');
 
-// GET users listing.
+// GET readings listing.
 router.get('/', function(req, res) {
 	// TODO remove: just to test
-	let contact = new User({ name: 'Rafael' });
-	console.log(contact);
-	contact.save(function (err, contact) {
+	let reading = new Reading({ name: 'Rafael' });
+	console.log(reading);
+	reading.save(function (err, reading) {
 		if (err) return console.error(err);
-		console.log('Saved contact: ', contact);
+		console.log('Saved reading: ', reading);
 		res.send('respond with a resource');
 	});
 });

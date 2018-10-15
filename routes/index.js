@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
-let usersRouter = require('./users');
+let readingsRouter = require('./users');
 
 module.exports = function (app) {
 	// GET home page.
@@ -10,5 +10,5 @@ module.exports = function (app) {
 	});
 
 	app.use('/', router);
-	app.use('/users', usersRouter);
+	app.use('/readings', readingsRouter);
 };

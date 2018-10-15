@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let ContactSchema = new mongoose.Schema({
+let ReadingSchema = new mongoose.Schema({
 	id: String,
 	otherIds: [{
 		email: String,
@@ -10,6 +10,6 @@ let ContactSchema = new mongoose.Schema({
 	email: String,
 	name: String,
 	phoneNumber: String
-}, { collection: 'contacts' });
+}, { collection: 'readings' });
 
-mongoose.model('Contact', ContactSchema);
+mongoose.model('Reading', ReadingSchema);
