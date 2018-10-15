@@ -26,16 +26,4 @@ router.post('/', function (req, res, next) {
 	});
 });
 
-// TODO remover
-router.get('/teste', function (req, res) {
-	// TODO remove: just to test
-	let reading = new Reading({ sensor: '5bc4f1ec82c009052c8d881b', flow: 7.52 });
-	console.log(reading);
-	reading.save(function (err, reading) {
-		if (err) return console.error(err);
-		console.log('Saved reading: ', reading);
-		res.send('respond with a resource');
-	});
-});
-
 module.exports = router;
