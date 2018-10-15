@@ -5,20 +5,33 @@ const mongoose = require('mongoose');
 const Reading = mongoose.model('Reading');
 
 // GET readings listing.
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {	
+	Reading
+		.find()
+		.populate('sensor')
+		.exec(function (err, readings) {
+			if (err) return console.error(err);
+			return res.json(readings);
+		});
+});
+
+// POST create new reading.
+router.post('/', function (req, res) {
+	// TODO
+	console.log('BODY ', req.body);
+	res.send('POST OK');
+});
+
+// TODO remover
+router.get('/teste', function (req, res) {
 	// TODO remove: just to test
-	let reading = new Reading({ name: 'Rafael' });
+	let reading = new Reading({ sensor: '5bc4f1ec82c009052c8d881b', flow: 7.52 });
 	console.log(reading);
 	reading.save(function (err, reading) {
 		if (err) return console.error(err);
 		console.log('Saved reading: ', reading);
 		res.send('respond with a resource');
 	});
-});
-
-router.post('/', function(req, res) {
-	console.log('BODY ', req.body);
-	res.send('POST OK');
 });
 
 module.exports = router;
