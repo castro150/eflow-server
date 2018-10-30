@@ -26,6 +26,7 @@ router.post('/', function (req, res, next) {
 	});
 });
 
+// GET actual reading.
 router.get('/actual', function (req, res, next) {	
 	Reading
 		.find()
@@ -33,6 +34,28 @@ router.get('/actual', function (req, res, next) {
 		.exec(function (err, readings) {
 			if (err) return next(err);
 			return res.json(readings[0]);
+		});
+});
+
+// GET consumption history.
+router.get('/history', function (req, res, next) {
+	if (!req.query.year) req.query.year = (new Date().getYear() + 1900).toString();
+	let year = req.query.year;
+	Reading
+		.aggregate([
+			{ $match: { date: {
+				$gte: new Date(year),
+				$lt: new Date((+year + 1).toString())
+			}}},
+			{ $group: {
+				_id: { month: { $month: '$date' } },
+				totalConsumption: { $max: '$consumption' },
+				count: { $sum: 1 }
+			}}
+		])
+		.exec(function (err, readings) {
+			if (err) return next(err);
+			return res.json(readings);
 		});
 });
 
